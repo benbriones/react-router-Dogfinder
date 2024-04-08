@@ -13,6 +13,14 @@
   }
 }
 
+.NavBar-link a {
+  color: plum;
+}
+
+.NavBar-link a.active {
+  color: red;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

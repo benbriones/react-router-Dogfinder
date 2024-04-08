@@ -16,16 +16,18 @@ export default function DogCard({ dogData }) {
     const { name, src, age, facts } = dogData;
 
     return (
-        <div className="DogCard col-md-4">
-            <img className="img-fluid"
+        <div className="DogCard col-md-4 card">
+            <img className="card-img-top"
                 src={`${imagePath}/${src}.jpg`}
                 alt={`picture of ${name}`} />
-            <div>Name: {name}</div>
-            <div>Age: {age}</div>
-            <div>
-                {facts.map((fact, idx) => (
-                    <div key={idx}>{`Fun fact #${idx + 1}: ${fact}`}</div>
-                ))}
+            <div className="card-body">
+                <div className="card-title">{name}</div>
+                <div className="card-text">Age: {age}</div>
+                <div className="card-text">
+                    {facts.map((fact, idx) => (
+                        <div key={idx}>{`Fun fact #${idx + 1}: ${fact}`}</div>
+                    ))}
+                </div>
             </div>
         </div>
     );
