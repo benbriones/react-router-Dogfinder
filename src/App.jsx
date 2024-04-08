@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
 import { useState } from 'react';
-import RouteList from "./RouteList"
-import Nav from "./Nav"
+import RouteList from "./RouteList";
+import Nav from "./Nav";
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -13,22 +13,33 @@ import { BrowserRouter } from 'react-router-dom';
  */
 function App() {
 
-  const [hasDataLoaded, setHasDataLoaded] = useState(false);
-  const [dogData, setDogData] = useState(null)
+  // const [hasDataLoaded, setHasDataLoaded] = useState(false);
+  const [dogData, setDogData] = useState(null);
+
+  const DOG_API_ENDPOINT = "http://localhost:5001/dogs";
 
   /** need to make:
    * function to fetch dog data
    * use function in this if statement
    */
-  if(!hasDataLoaded) {
-    // getdogdata()
+  if (!dogData) {
+    fetchDogData();
+    return <h1>Loading...</h1>;
+
+  }
+
+  async function fetchDogData() {
+    const response = await fetch(DOG_API_ENDPOINT);
+    const data = await response.json();
+    setDogData(data);
+
   }
 
   return (
     <div className="App">
-      <Nav />
       <BrowserRouter>
-        <RouteList />
+        <Nav dogData={dogData} />
+        <RouteList dogData={dogData} />
       </BrowserRouter>
     </div>
   );

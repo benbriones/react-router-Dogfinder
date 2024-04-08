@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import DogList from "./DogList"
-import DogDetails from "./DogDetails"
+// import DogList from "./DogList";
+// import DogDetails from "./DogDetails";
 
 /** component for all our routes
  *
@@ -9,13 +9,13 @@ import DogDetails from "./DogDetails"
  *
  */
 
-export default function RouteList() {
+export default function RouteList({ dogData }) {
 
-    return(
+    return (
         <Routes>
             <Route path="/" element={<DogList />} />
             <Route path="/dogs/:name" element={<DogDetails />} />
         </Routes>
-    )
+    );
 
 }
