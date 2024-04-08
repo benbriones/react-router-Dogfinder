@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 /** Component for rendering NavBar
@@ -16,7 +16,7 @@ export default function Nav({ dogData }) {
 
     return (
         <nav className="Nav">
-            {dogData.map(dog => <Link key={uuid()} to={`dogs/${dog.name}`} />)}
+            {dogData.map(dog =><NavLink className="me-4" key={uuid()} to={`dogs/${dog.name}`} >{dog.name}</NavLink>)}
         </nav>
     );
 }
