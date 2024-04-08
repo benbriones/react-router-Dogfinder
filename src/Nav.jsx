@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 
 /** Component for rendering NavBar
  *
- * Props: dogData{}
+ * Props: dogData{name, age, src, facts}
  * State: none
  *
  * App -> { Nav, RouteList }
@@ -12,11 +12,10 @@ import { v4 as uuid } from "uuid";
 
 
 export default function Nav({ dogData }) {
-    console.log(dogData);
 
     return (
-        <nav className="Nav">
-            {dogData.map(dog =><NavLink className="me-4" key={uuid()} to={`dogs/${dog.name}`} >{dog.name}</NavLink>)}
+        <nav className="Nav navbar navbar-dark bg-primary ">
+            {dogData.map(dog => <NavLink className="me-4 text-light" key={dog.id} to={`dogs/${dog.name}`} >{dog.name}</NavLink>)}
         </nav>
     );
 }
